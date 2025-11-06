@@ -10454,7 +10454,7 @@ body {
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: url("../WEB-MIWAI/PHD_FORUM/assets/img/bg-masthead.jpg");
+  /* background: url("../WEB-MIWAI/PHD_FORUM/assets/img/bg-masthead.jpg"); */
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -10669,7 +10669,7 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1400px; /* Chiều rộng tối đa */
+    max-width: 100%; /* Chiều rộng tối đa */
     margin: 0 auto;
     padding: 0 25px; /* Khoảng đệm hai bên */
 }
@@ -10795,7 +10795,13 @@ body {
     font-family: 'Montserrat', sans-serif !important; 
     color: #333;
 }
-
+.text-content img {
+    width: 100%; 
+    height: auto; 
+    max-width: 100%; 
+    display: block;
+    margin: 0 auto;
+}
 /* 1. Tạo kiểu cho Đoạn văn mở đầu */
 .text-content p {
     font-size: 1.1rem;
@@ -10803,21 +10809,18 @@ body {
     margin-bottom: 2px; /* Khoảng cách lớn với danh sách */
     text-align: justify; /* Căn đều hai bên */
 }
-
 /* 2. Tạo kiểu cho Danh sách (<ul>) */
 .text-content ul {
     list-style-type: disc; /* Dấu chấm tròn (mặc định) */
     padding-left: 20px;  /* Khoảng cách từ lề trái đến dấu chấm */
     margin: 0;
 }
-
 /* 3. Tạo kiểu cho các Mục trong Danh sách (<li>) */
 .text-content ul li {
     font-size: 1rem;
     line-height: 1.7; /* Khoảng cách dòng hợp lý */
     margin-bottom: 5px; /* Khoảng cách lớn giữa các mục liệt kê */
 }
-
 /* 4. Tạo kiểu cho phần Tiêu đề nhỏ trong danh sách (sử dụng <strong>) */
 .text-content ul li strong {
     /* Đảm bảo tiêu đề nhỏ nổi bật, cùng cỡ chữ với đoạn văn */
@@ -10851,9 +10854,6 @@ body {
     box-sizing: border-box;
 }
 
-/* =====================
-   CSS Tạo Kiểu (Áp dụng lại)
-   ===================== */
 .content-split p {
     font-size: 1.1rem;
     line-height: 1.6;
@@ -10879,10 +10879,11 @@ body {
     color: #1f2937;
 }
 
-/* Tùy chọn: Đảm bảo bố cục gọn lại trên màn hình nhỏ */
+
+
 @media (max-width: 768px) {
     .content-split {
-        flex-direction: column; /* Chuyển thành một cột dọc */
+        flex-direction: column;
         gap: 20px;
     }
     .intro-paragraph, .benefits-list {
@@ -10891,48 +10892,37 @@ body {
 }
 
 
-
 .bg-gray-light {
-    /* Mã Hex #F8F8F8 là màu xám nhạt (gần như trắng), dịu mắt. 
-       Mã #EEEEEE là màu xám nhạt tiêu chuẩn của Bootstrap (bs-gray-200). */
     background-color: #F8F8F8; 
-    
-    /* Đảm bảo chữ bên trong vẫn dễ đọc */
-    color: #333333; /* Giữ màu chữ đen đậm */
+    color: #333333; 
 }
-/* Tên class có thể là .gradient-title-fit */
 .text-gradient-effect {
-    /* 1. Thiết lập hình ảnh nền (hoặc gradient) */
     background-image: linear-gradient(to right, #007bff, #17a2b8, #28a745);
-    
-    /* 2. ĐẶT MÀU CHỮ THÀNH TRONG SUỐT (Quan trọng) */
     color: transparent; 
-    
-    /* 3. CẮT PHẦN NỀN THEO HÌNH DẠNG VĂN BẢN (Text Clipping) */
-    /* Dành cho trình duyệt dựa trên WebKit (Chrome, Safari) */
     -webkit-background-clip: text; 
-    /* Dành cho tiêu chuẩn */
     background-clip: text; 
-    
-    /* Tùy chọn: Đảm bảo kích thước chữ phù hợp */
-    /* font-size: 3rem; 
-    font-weight: 700; */
-    
-    /* Nếu bạn muốn loại bỏ các margin mặc định của H2: */
     margin: 0;
     padding: 0;
-    /* display: inline-block; */
-    
 }
 
 
-    .fixed-height {
-      height: 300px;      /* chiều dọc cố định */
-      /* không đặt width cho container nếu muốn chiếm chiều ngang tự do */
-      display: block;
+.fixed-height {
+  height: 300px;     
+  display: block;
+}
+.fixed-height img {
+  height: 100%; 
+  width: auto; 
+  display: block;
+}
+
+/* Mặc định hiển thị cho màn hình lớn */
+.hide-on-small {
+    display: block; /* Đảm bảo nó được hiển thị */
+}
+
+@media (max-width: 780px) {
+    .hide-on-small {
+        display: none !important;
     }
-    .fixed-height img {
-      height: 100%;       /* cao = chiều dọc cố định của container */
-      width: auto;        /* giữ tỉ lệ, không méo */
-      display: block;     /* bỏ khoảng trắng dưới ảnh */
-    }
+}
